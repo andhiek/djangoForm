@@ -1,0 +1,56 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% include 'snippets/styles.html' %}
+  <title>{{page_title}}</title>
+</head>
+
+<body>
+
+  <!-- Navbar Start -->
+  {% include 'snippets/navbar.html' %}
+  <!-- Navbar End -->
+
+
+  <!-- jumbotron Start -->
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      {% block header %}
+
+      {% endblock header %}
+    </div>
+  </div>
+
+
+  <div class="container">
+    {% block subheader %}
+
+    {% endblock subheader %}
+  </div>
+
+  {% block section %}
+
+  {% endblock section  %}
+
+  {% block content %}
+
+  {% endblock content %}
+
+
+  <div class="container-fluid   bg-body-secondary">
+    <div class="container">
+      <p class="text-center">Copyright@2024</p>
+    </div>
+  </div>
+
+
+  {% include 'snippets/scripts.html' %}
+</body>
+
+</html>

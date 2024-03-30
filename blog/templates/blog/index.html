@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block header %}
+<div class="container">
+  <h1>{{title}}</h1>
+  <h3>{{subtitle}}</h3>
+  <p>{{heading}}</p>
+</div>
+{% endblock header %}
+
+
+
+{% block subheader %}
+<div class="container">
+  <nav class="navbar">
+    <ul class="nav ">
+      {% for listcategories in categories  %}
+      <li class="nav-item ">
+        <a class="nav-link"
+          href="{% url 'blog:category' categoryInput=listcategories.category %}">{{listcategories.category}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>
+{% endblock subheader %}
+
+{% block section %}
+<div class=" container">
+  {% for post in Posts %}
+
+  <h1>{{post.judul}}</h1>
+  <a href="{% url 'blog:detail' slugInput=post.slug %}">{{post.body}}</a>
+  <p>{{post.category}}</p>
+
+  {% endfor %}
+</div>
+{% endblock section %}
